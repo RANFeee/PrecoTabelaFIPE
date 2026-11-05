@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta FIPE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <header>
+            <h1>Consulta FIPE</h1>
+            <p>Consulte o preço de veículos pela Tabela FIPE.</p>
+        </header>
+
+        <section class="consulta">
+            <label for="tipo">Tipo de veículo</label>
+            <select id="tipo">
+                <option value="cars">Carros</option>
+                <option value="motorcycles">Motos</option>
+                <option value="trucks">Caminhões</option>
+            </select>
+
+            <label for="marca">Marca</label>
+            <select id="marca">
+                <option value="">Selecione uma marca</option>
+            </select>
+
+            <label for="modelo">Modelo</label>
+            <select id="modelo" disabled>
+                <option value="">Selecione um modelo</option>
+            </select>
+
+            <label for="ano">Ano / Combustível</label>
+            <select id="ano" disabled>
+                <option value="">Selecione o ano</option>
+            </select>
+
+            <button id="consultar" disabled>
+                Consultar preço
+            </button>
+        </section>
+
+        <section id="resultado" class="resultado" hidden>
+            <h2>Resultado da consulta</h2>
+            <h1 id="preco"></h1>
+
+            <p><strong>Marca:</strong> <span id="resultadoMarca"></span></p>
+            <p><strong>Modelo:</strong> <span id="resultadoModelo"></span></p>
+            <p><strong>Ano:</strong> <span id="resultadoAno"></span></p>
+            <p><strong>Combustível:</strong> <span id="resultadoCombustivel"></span></p>
+            <p><strong>Código FIPE:</strong> <span id="codigoFipe"></span></p>
+            <p><strong>Referência:</strong> <span id="referencia"></span></p>
+        </section>
+
+        <p id="mensagem"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
