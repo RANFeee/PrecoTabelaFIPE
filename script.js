@@ -1,7 +1,6 @@
 
 const API = "https://fipe.parallelum.com.br/api/v2";
 
-// Capturando os elementos HTML
 const tipo = document.getElementById("tipo");
 const marca = document.getElementById("marca");
 const modelo = document.getElementById("modelo");
@@ -10,7 +9,6 @@ const consultar = document.getElementById("consultar");
 const resultado = document.getElementById("resultado");
 const mensagem = document.getElementById("mensagem");
 
-// Função para consultar a API
 async function buscarDados(url) {
     const resposta = await fetch(url);
 
@@ -21,12 +19,10 @@ async function buscarDados(url) {
     return await resposta.json();
 }
 
-// Limpa as opções de um select
 function limparSelect(elemento, texto) {
     elemento.innerHTML = `<option value="">${texto}</option>`;
 }
 
-// Controla o estado dos campos dependentes
 function resetarCampos() {
     limparSelect(modelo, "Selecione um modelo");
     limparSelect(ano, "Selecione o ano");
@@ -38,12 +34,10 @@ function resetarCampos() {
     resultado.hidden = true;
 }
 
-// Exibe mensagens de carregamento ou erro
 function exibirMensagem(texto) {
     mensagem.textContent = texto;
 }
 
-// 1. Buscar marcas
 async function carregarMarcas() {
     resetarCampos();
     limparSelect(marca, "Carregando marcas...");
@@ -71,7 +65,6 @@ async function carregarMarcas() {
     }
 }
 
-// 2. Buscar modelos
 async function carregarModelos() {
     resetarCampos();
 
@@ -105,7 +98,6 @@ async function carregarModelos() {
     }
 }
 
-// 3. Buscar anos
 async function carregarAnos() {
     limparSelect(ano, "Carregando anos...");
     ano.disabled = true;
@@ -139,7 +131,6 @@ async function carregarAnos() {
     }
 }
 
-// 4. Consultar preço FIPE
 async function consultarPreco() {
     if (!ano.value) return;
 
@@ -172,7 +163,6 @@ async function consultarPreco() {
     }
 }
 
-// Eventos dos campos
 tipo.addEventListener("change", carregarMarcas);
 marca.addEventListener("change", carregarModelos);
 modelo.addEventListener("change", carregarAnos);
